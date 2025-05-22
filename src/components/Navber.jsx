@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 const Navber = () => {
@@ -19,11 +20,13 @@ const Navber = () => {
                                           <li><Link href="#">Contact</Link></li>
                                     </ul>
                               </div>
-                              <Link href={'/'} className="text-xl font-bold text-orange-500">Car-Doctor</Link>
+                              <Link href={'/'}>
+                                    <Image src={'./assets/logo.svg'} width={80} height={50} alt="logo" />
+                              </Link>
                         </div>
                         {/* large device menu */}
                         <div className="navbar-center hidden lg:flex">
-                              <ul className="menu menu-horizontal space-x-3 px-1 font-semibold">
+                              <ul className="menu menu-horizontal space-x-2 text-lg font-semibold">
                                     <li><Link href="/" className="hover:bg-orange-500 hover:text-slate-50 duration-300">Home</Link>
                                     </li>
                                     <li>
@@ -41,7 +44,7 @@ const Navber = () => {
                               </ul>
                         </div>
                         <div className="navbar-end">
-                              <button type="button" className="btn border-2 border-orange-500 font-semibold hover:bg-orange-600 hover:text-slate-50 text-orange-500 duration-300">Appointment</button>
+                              <button type="button" className="btn border-2 border-orange-500 text-lg py-4 font-semibold hover:bg-orange-600 hover:text-slate-50 text-orange-500 duration-300">Appointment</button>
                         </div>
                   </div>
             </nav>
