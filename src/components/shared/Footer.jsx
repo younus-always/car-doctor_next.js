@@ -7,7 +7,6 @@ const Footer = () => {
                   <section className="max-w-7xl mx-auto">
                         <div className="footer sm:footer-horizontal py-10 text-slate-100">
                               <aside>
-                                    {/* <img src="" alt="" /> */}
                                     <Image src={'./assets/logo.svg'} alt="logo" width={120} height={120} />
                                     <p className="max-w-72 text-lg text-gray-400">Edwin Diaz is a software and web technologies engineer, a life coach trainer who is also a serial .</p>
                                     {/* social icons */}
