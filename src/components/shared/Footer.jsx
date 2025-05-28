@@ -1,7 +1,12 @@
+"use client"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 const Footer = () => {
+      const pathname = usePathname()
+      if (pathname.includes("register") || pathname.includes("login")) return <></>
+
       return (
             <footer className="bg-slate-900 ">
                   <section className="max-w-7xl mx-auto">

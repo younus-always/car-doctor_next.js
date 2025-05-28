@@ -1,7 +1,12 @@
+"use client"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 const Navber = () => {
+      const pathname = usePathname()
+      if (pathname.includes("register") || pathname.includes("login")) return <></>
+      
       return (
             <nav className="max-w-7xl mx-auto">
                   <div className="navbar bg-base-100">
