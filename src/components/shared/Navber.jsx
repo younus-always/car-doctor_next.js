@@ -1,12 +1,16 @@
 "use client"
+import { signOut, useSession } from "next-auth/react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 const Navber = () => {
       const pathname = usePathname()
+      const session = useSession()
+      const { data, status } = session;
+      console.log(data, status)
       if (pathname.includes("register") || pathname.includes("login")) return <></>
-      
+
       return (
             <nav className="max-w-7xl mx-auto">
                   <div className="navbar bg-base-100">
@@ -48,7 +52,13 @@ const Navber = () => {
                                     </li>
                               </ul>
                         </div>
-                        <div className="navbar-end">
+                        <div className="navbar-end gap-2">
+                              {status == 'authenticated' ?
+                                    <button type="button" onClick={() => signOut()} className="py-2 px-3 rounded-lg border font-semibold cursor-pointer">Logout</button> :
+                                    <>
+                                          <Link href={'/register'}>Sign Up</Link>
+                                          <Link href={'/login'}>Sign In</Link>
+                                    </>}
                               <button type="button" className="btn border-2 border-orange-500 text-lg py-4 font-semibold hover:bg-orange-600 hover:text-slate-50 text-orange-500 duration-300">Appointment</button>
                         </div>
                   </div>
