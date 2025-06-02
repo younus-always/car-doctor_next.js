@@ -2,8 +2,7 @@
 import { registerUser } from "@/app/actions/auth/registerUser"
 import Image from "next/image"
 import Link from "next/link"
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa6"
-import { FcGoogle } from "react-icons/fc"
+import SocialLogin from "../login/components/SocialLogin"
 
 const RegisterPage = () => {
 
@@ -41,11 +40,7 @@ const RegisterPage = () => {
                               <button type="submit" className="w-full bg-orange-500 text-slate-50 font-bold rounded-lg py-2 cursor-pointer active:scale-95 duration-200 my-5">Sign Up</button>
                         </form>
                         <p className="text-center text-gray-400">Or Sign Up with</p>
-                        <div className="flex items-center justify-center gap-3 my-5">
-                              <Link href={"https://facebook.com"} target="_blank" className="p-2 rounded-full bg-gray-200 text-blue-600"><FaFacebookF /></Link>
-                              <Link href={"https://www.linkedin.com"} target="_blank" className="p-2 rounded-full bg-gray-200 text-blue-600"><FaLinkedinIn /></Link>
-                              <Link href={"https://www.google.com"} target="_blank" className="p-2 rounded-full bg-gray-200 text-blue-600"><FcGoogle /></Link>
-                        </div>
+                        <SocialLogin />
                         <p className="text-center text-gray-600">Already have an account?<Link href={"/login"} className="text-orange-500 font-semibold"> Sign In</Link></p>
                   </div>
             </section>

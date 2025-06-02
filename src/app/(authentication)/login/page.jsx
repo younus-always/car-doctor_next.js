@@ -1,8 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa6"
-import { FcGoogle } from "react-icons/fc"
 import LoginForm from "./components/LoginForm"
+import SocialLogin from "./components/SocialLogin"
 
 const LoginPage = () => {
 
@@ -15,12 +14,8 @@ const LoginPage = () => {
                         <h3 className="text-3xl font-semibold text-center mb-5">Login</h3>
                         <LoginForm />
                         <p className="text-center text-gray-400">Or Sign In with</p>
-                        <div className="flex items-center justify-center gap-3 my-5">
-                              <Link href={"https://facebook.com"} target="_blank" className="p-2 rounded-full bg-gray-200 text-blue-600"><FaFacebookF /></Link>
-                              <Link href={"https://www.linkedin.com"} target="_blank" className="p-2 rounded-full bg-gray-200 text-blue-600"><FaLinkedinIn /></Link>
-                              <Link href={"https://www.google.com"} target="_blank" className="p-2 rounded-full bg-gray-200 text-blue-600"><FcGoogle /></Link>
-                        </div>
-                        <p className="text-center text-gray-600">Don't have an account?<Link href={"/register"} className="text-orange-500 font-semibold"> Sign Up</Link></p>
+                        <SocialLogin />
+                        <p className="text-center text-gray-600">Don't have an account? <Link href={"/register"} className="text-orange-500 font-semibold  hover:underline hover:underline-offset-2">Sign Up</Link></p>
                   </div>
             </section>
       )
