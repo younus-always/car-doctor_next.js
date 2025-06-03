@@ -1,16 +1,12 @@
-import dbConnect, { collectionNameObj } from "@/lib/dbConnect";
-import { ObjectId } from "mongodb";
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight, FaRegFilePdf } from "react-icons/fa";
 
 const ServiceDetailsPage = async ({ params }) => {
       const { id } = await params;
-      // single service data fetch to database
-      const servicesCollection = dbConnect(collectionNameObj.servicesCollection);
-      const service = await servicesCollection.findOne({ _id: new ObjectId(id) });
-      console.log(service)
-      const { title, img, price, description, facility } = service || {};
+      const res = await fetch(`http://localhost:3000/api/service/${id}`);
+      const service = await res.json(res);
+      const { _id, title, img, price, description, facility } = service || {};
 
       return (
             <>
@@ -104,7 +100,7 @@ const ServiceDetailsPage = async ({ params }) => {
                                                 "> Special</span>
                                           </p>
                                           <p className="text-slate-950 text-lg font-semibold">
-                                                Save upto 
+                                                Save upto
                                                 <span className="text-orange-500
                                                 "> 60% off</span>
                                           </p>
@@ -113,7 +109,9 @@ const ServiceDetailsPage = async ({ params }) => {
                               {/* proceed to checkout */}
                               <div className="space-y-3">
                                     <p className="text-2xl font-bold">Price ${price}</p>
-                                    <button type="button" className="w-full bg-orange-500 text-slate-50 font-semibold p-4 rounded-lg hover:bg-orange-400 duration-300">Proceed Checkout</button>
+                                    <Link href={`/checkout/${_id}`}>
+                                          <button type="button" className="w-full bg-orange-500 text-slate-50 font-semibold p-4 rounded-lg hover:bg-orange-400 duration-300 cursor-pointer">Proceed Checkout</button>
+                                    </Link>
                               </div>
                         </div>
                   </section>
