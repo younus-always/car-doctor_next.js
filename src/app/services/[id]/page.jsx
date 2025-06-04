@@ -16,7 +16,7 @@ const ServiceDetailsPage = async ({ params }) => {
                                     <Image src={'/assets/images/checkout/checkout.png'} width={1280} height={300} alt="services banner" />
                               </figure>
                               <h2 className="absolute top-2/5 left-2/12 text-slate-50 font-semibold text-4xl">Service Details</h2>
-                              <div className="absolute bottom-0 left-5/12 text-slate-50 font-semibold text-lg bg-orange-500 p-2 flex items-center justify-center before:absolute before:left-0 before:top-0 before:bg-orange-500 before:w-2 before:h-full after:absolute  after:w-2 after:h-full">
+                              <div className="absolute bottom-0 left-5/12 text-slate-50 bg-orange-500 px-6 py-2 flex items-center justify-center before:absolute before:left-0 before:top-0 before:bg-orange-500 before:w-2 before:h-full after:absolute after:w-2 after:h-full">
                                     <Link href={'/'}>Home</Link>
                                     <p>/Service Details</p>
                               </div>

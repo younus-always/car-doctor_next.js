@@ -30,7 +30,7 @@ const Navber = () => {
                                     </ul>
                               </div>
                               <Link href={'/'}>
-                                    <Image src={'./assets/logo.svg'} width={80} height={50} alt="logo" />
+                                    <Image src={'/assets/logo.svg'} width={80} height={50} alt="logo" />
                               </Link>
                         </div>
                         {/* large device menu */}
