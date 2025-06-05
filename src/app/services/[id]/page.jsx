@@ -8,6 +8,7 @@ const ServiceDetailsPage = async ({ params }) => {
       const service = await res.json(res);
       const { _id, title, img, price, description, facility } = service || {};
 
+      
       return (
             <>
                   <section className="max-w-7xl mx-auto py-10">
