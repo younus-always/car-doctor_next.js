@@ -10,8 +10,6 @@ const CheckOutPage = async ({ params }) => {
       const servicesCollection = dbConnect(collectionNameObj.servicesCollection);
       const service = await servicesCollection.findOne({ _id: new ObjectId(id) });
 
-      console.log(service)
-
       return (
             <>
                   <section className="max-w-7xl mx-auto py-10">
@@ -26,7 +24,7 @@ const CheckOutPage = async ({ params }) => {
                               </div>
                         </div>
                   </section>
-                  <CheckOutForm />
+                  <CheckOutForm service={service}/>
             </>
       )
 }
