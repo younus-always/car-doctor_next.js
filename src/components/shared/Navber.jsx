@@ -25,7 +25,7 @@ const Navber = () => {
                                           <li><Link href="#">Home</Link></li>
                                           <li><Link href="#">About</Link></li>
                                           <li><Link href="#">Services</Link></li>
-                                          <li><Link href="#">Blog</Link></li>
+                                          <li><Link href="/my-booking">My Booking</Link></li>
                                           <li><Link href="#">Contact</Link></li>
                                     </ul>
                               </div>
@@ -45,7 +45,7 @@ const Navber = () => {
                                           <Link href="/" className="hover:bg-orange-500 hover:text-slate-50 duration-300">Services</Link>
                                     </li>
                                     <li>
-                                          <Link href="/" className="hover:bg-orange-500 hover:text-slate-50 duration-300">Blog</Link>
+                                          <Link href="/my-booking" className="hover:bg-orange-500 hover:text-slate-50 duration-300">My Booking</Link>
                                     </li>
                                     <li>
                                           <Link href="/" className="hover:bg-orange-500 hover:text-slate-50 duration-300">Contact</Link>
