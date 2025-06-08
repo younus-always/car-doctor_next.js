@@ -1,6 +1,6 @@
-import { MdDeleteForever } from "react-icons/md";
 import { FaPenToSquare } from "react-icons/fa6";
 import Image from "next/image";
+import DeleteBookingBtn from "@/app/my-booking/components/DeleteBookingBtn";
 
 const MyBookingsTable = ({ data }) => {
       console.log(data)
@@ -32,7 +32,7 @@ const MyBookingsTable = ({ data }) => {
                                                 <button type="button" className="text-yellow-500 cursor-pointer"><FaPenToSquare size={24} /></button>
                                           </td>
                                           <td>
-                                                <button type="button" className="text-red-500 cursor-pointer"><MdDeleteForever size={24} /></button>
+                                                <DeleteBookingBtn id={item._id} />
                                           </td>
                                     </tr>)}
                         </tbody>
