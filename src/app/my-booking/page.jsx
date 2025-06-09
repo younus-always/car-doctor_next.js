@@ -6,8 +6,10 @@ const fetchBookings = async () => {
       const res = await fetch("http://localhost:3000/api/service", {
             headers: headers
       })
-      const result = await res.json()
-      return result
+      let result = await res.json()
+      // ToDo:: debug the result
+      return result = []
+
 }
 
 const MyBookings = async () => {
@@ -16,7 +18,7 @@ const MyBookings = async () => {
       // useEffect(() => {
       // fetchBookings()
       // }, []);
-
+      console.log(data)
 
       return (
             <div>

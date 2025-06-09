@@ -1,3 +1,4 @@
+"use client"
 import { useRouter } from "next/navigation";
 import { MdDeleteForever } from "react-icons/md";
 

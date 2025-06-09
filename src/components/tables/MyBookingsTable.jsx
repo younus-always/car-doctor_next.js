@@ -1,6 +1,7 @@
 import { FaPenToSquare } from "react-icons/fa6";
 import Image from "next/image";
 import DeleteBookingBtn from "@/app/my-booking/components/DeleteBookingBtn";
+import Link from "next/link";
 
 const MyBookingsTable = ({ data }) => {
       console.log(data)
@@ -19,8 +20,8 @@ const MyBookingsTable = ({ data }) => {
                               </tr>
                         </thead>
                         <tbody>
-                              {data?.map(item =>
-                                    <tr key={item._id} className="border">
+                              {data &&
+                                    data.map(item => <tr key={item._id} className="border">
                                           <td>
                                                 <Image src={item.service_img}
                                                       alt={item.service_name} height={50} width={50} />
@@ -29,12 +30,13 @@ const MyBookingsTable = ({ data }) => {
                                           <td>{item.date}</td>
                                           <td>{item.service_price}</td>
                                           <td>
-                                                <button type="button" className="text-yellow-500 cursor-pointer"><FaPenToSquare size={24} /></button>
+                                                <Link href={`/my-booking/${item._id}`} className="text-yellow-500 cursor-pointer"><FaPenToSquare size={24} /></Link>
                                           </td>
                                           <td>
                                                 <DeleteBookingBtn id={item._id} />
                                           </td>
-                                    </tr>)}
+                                    </tr>)
+                              }
                         </tbody>
                   </table>
             </div>
