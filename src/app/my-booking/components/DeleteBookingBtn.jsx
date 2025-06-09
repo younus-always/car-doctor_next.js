@@ -9,7 +9,8 @@ const DeleteBookingBtn = ({ id }) => {
             const res = await fetch(`http://localhost:3000/api/service/${id}`, {
                   method: "DELTE"
             })
-            const data = await res.json();
+            const deleteData = await res.json();
+            console.log("Deleted data response", deleteData)
             router.refresh()
       };
 

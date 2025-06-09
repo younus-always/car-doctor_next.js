@@ -1,10 +1,12 @@
 "use client"
 
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-const BookingUpdateForm = ({ service }) => {
+const BookingUpdateForm = ({ data }) => {
       const { data: session } = useSession();
+      const router = useRouter()
 
       const handleSubmit = async (e) => {
             toast.success("Submitting Booking....")
@@ -20,15 +22,16 @@ const BookingUpdateForm = ({ service }) => {
                   address
             };
             // post service to database
-            const res = await fetch("http://localhost:3000/api/service", {
-                  method: "POST",
+            const res = await fetch(`http://localhost:3000/api/my-booking/${id}`, {
+                  method: "PATCH",
                   headers: {
                         "Content-Type": "application/json"
                   },
                   body: JSON.stringify(bookingPayload)
             });
             const postedData = await res.json();
-
+            console.log("Updated data response", postedData)
+            router.push("/my-booking")
       };
 
       return (
@@ -63,7 +66,7 @@ const BookingUpdateForm = ({ service }) => {
                                     <div className="flex-1">
                                           <label htmlFor="amount" className="label block pb-2">Amount*</label>
                                           <input
-                                                defaultValue={service?.price}
+                                                defaultValue={data?.service_price}
                                                 readOnly
                                                 type="number"
                                                 id="amount"
@@ -77,6 +80,7 @@ const BookingUpdateForm = ({ service }) => {
                                                 type="number"
                                                 name="number"
                                                 id="number"
+                                                defaultValue={data?.phone}
                                                 placeholder="Your Phone"
                                                 className="w-full bg-white rounded-md px-2 py-2 outline-none focus:placeholder-gray-400"
                                                 required
@@ -91,7 +95,7 @@ const BookingUpdateForm = ({ service }) => {
                                                 type="date"
                                                 name="date"
                                                 id="date"
-                                                placeholder=""
+                                                defaultValue={data?.date}
                                                 className="w-full text-gray-500 bg-white rounded-md px-2 py-2 outline-none focus:placeholder-gray-400"
                                                 required
                                           />
@@ -102,6 +106,8 @@ const BookingUpdateForm = ({ service }) => {
                                                 type="text"
                                                 name="address"
                                                 id="address"
+                                                defaultValue={data?.address}
+                                                placeholder="Your Address"
                                                 className="w-full bg-white rounded-md px-2 py-2 outline-none focus:placeholder-gray-400"
                                                 required
                                           />

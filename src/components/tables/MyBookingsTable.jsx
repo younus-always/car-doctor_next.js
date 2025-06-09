@@ -15,6 +15,8 @@ const MyBookingsTable = ({ data }) => {
                                     <th>Service Name</th>
                                     <th>Service Date</th>
                                     <th>Service Price</th>
+                                    <th>Phone</th>
+                                    <th>Address</th>
                                     <th></th>
                                     <th></th>
                               </tr>
@@ -29,6 +31,8 @@ const MyBookingsTable = ({ data }) => {
                                           <td>{item.service_name}</td>
                                           <td>{item.date}</td>
                                           <td>{item.service_price}</td>
+                                          <td>{item.phone}</td>
+                                          <td>{item.address}</td>
                                           <td>
                                                 <Link href={`/my-booking/${item._id}`} className="text-yellow-500 cursor-pointer"><FaPenToSquare size={24} /></Link>
                                           </td>
